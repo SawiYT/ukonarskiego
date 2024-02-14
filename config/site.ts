@@ -1,16 +1,16 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-	name: 'Next.js + NextUI',
+	name: 'U Konarskiego',
 	description: 'Make beautiful websites regardless of your design experience.',
 	navItems: [
 		{
 			label: 'Rekrutacja',
-			href: '/rekrutacja',
+			href: '/recruitment',
 		},
 		{
 			label: 'Podręczniki',
-			href: '/podreczniki',
+			href: '/books',
 		},
 		{
 			label: 'Blog',
@@ -18,17 +18,17 @@ export const siteConfig = {
 		},
 		{
 			label: 'Panel',
-			href: '/panel',
+			href: '/dashboard',
 		},
 	],
 	navMenuItems: [
 		{
 			label: 'Rekrutacja',
-			href: '/rekrutacja',
+			href: '/recruitment',
 		},
 		{
 			label: 'Podręczniki',
-			href: '/podreczniki',
+			href: '/books',
 		},
 		{
 			label: 'Blog',
@@ -36,7 +36,7 @@ export const siteConfig = {
 		},
 		{
 			label: 'Panel',
-			href: '/panel',
+			href: '/dashboard',
 		},
 	],
 	links: {

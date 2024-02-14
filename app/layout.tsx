@@ -4,7 +4,6 @@ import { siteConfig } from '@/config/site';
 import { fontSans } from '@/config/fonts';
 import { Providers } from './providers';
 import { Navbar } from '@/components/navbar';
-import { Link } from '@nextui-org/link';
 import clsx from 'clsx';
 
 export const metadata: Metadata = {
@@ -32,7 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				<Providers themeProps={{ attribute: 'class', defaultTheme: 'light' }}>
 					<div className='relative flex flex-col h-screen'>
 						<Navbar />
-						<main className='container mx-auto max-w-7xl pt-16 px-6 flex-grow'>{children}</main>
+						<main className='container mx-auto max-w-7xlflex-grow'>{children}</main>
 					</div>
 				</Providers>
 			</body>

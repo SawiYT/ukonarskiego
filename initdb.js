@@ -1,10 +1,9 @@
-const sql = require('better-sqlite3')
-const db = sql('blog.db')
+const sql = require('better-sqlite3');
+const db = sql('blog.db');
 
 const dummyMeals = [
 	{
 		title: 'Rozwijamy pasje uczniów',
-		slug: 'pasje-uczniow',
 		image: '/dummyimage.jpeg',
 		summary: 'Wierzymy w was!',
 		description:
@@ -12,21 +11,19 @@ const dummyMeals = [
 		creator: 'SilentStudent',
 	},
 	{
-		title: 'Nasz klub szachowego',
-		slug: 'klub-szachowy',
+		title: 'Nasz klub szachowy',
 		image: '/dummychess.jpg',
 		summary: 'Posiadamy wlasny klub szachowy!',
 		description:
 			'Zapraszamy do uczestnictwa w naszym klubie, gdzie rozwijamy umiejętności szachowe i budujemy społeczność pasjonatów tej fascynującej gry.',
 		creator: 'TwórcaKlubuSzachowego',
 	},
-]
+];
 
 db.prepare(
 	`
    CREATE TABLE IF NOT EXISTS blog (
        id INTEGER PRIMARY KEY AUTOINCREMENT,
-       slug TEXT NOT NULL UNIQUE,
        title TEXT NOT NULL,
        image TEXT NOT NULL,
 	   summary TEXT NOT NULL,
@@ -34,24 +31,23 @@ db.prepare(
        creator TEXT NOT NULL
     )
 `
-).run()
+).run();
 
 async function initData() {
 	const stmt = db.prepare(`
       INSERT INTO blog VALUES (
          null,
-         @slug,
          @title,
          @image,
 		 @summary,
          @description,
          @creator
       )
-   `)
+   `);
 
 	for (const meal of dummyMeals) {
-		stmt.run(meal)
+		stmt.run(meal);
 	}
 }
 
-initData()
+initData();

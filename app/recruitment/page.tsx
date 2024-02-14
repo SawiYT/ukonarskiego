@@ -1,13 +1,14 @@
 import { Input } from '@/components/input';
-import { shareApplication } from '@/lib/actions';
+import { title } from '@/components/primitives';
+import { shareApplication } from '@/lib/recruitment-actions';
 import { Button } from '@nextui-org/react';
 
 export default function AboutPage() {
 	return (
 		<div className='p-8'>
-			<h1 className={'text-4xl font-bold mb-10'}>Rekrutacja</h1>
+			<h2 className={title()}>Rekrutacja</h2>
 
-			<form action={shareApplication} className='max-w-md mx-auto grid grid-cols-2 gap-4'>
+			<form action={shareApplication} className='max-w-md pt-10 mx-auto grid grid-cols-2 gap-4'>
 				<Input label='Pierwsze imię' type='text' id='name' />
 				<Input label='Drugie imię' type='text' id='secondname' />
 				<Input label='Nazwisko' type='text' id='surname' />

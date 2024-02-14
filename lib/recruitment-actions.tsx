@@ -1,6 +1,6 @@
-export async function shareApplication(formData: FormData): Promise<void> {
-	'use server';
+'use server';
 
+export async function shareApplication(formData: FormData): Promise<void> {
 	const user = {
 		name: formData.get('name'),
 		secondName: formData.get('secondname'),
@@ -18,5 +18,5 @@ export async function shareApplication(formData: FormData): Promise<void> {
 		studentsEmail: formData.get('studentsemail'),
 	};
 
-    console.log(user)
+	console.log(user);
 }
