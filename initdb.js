@@ -1,24 +1,26 @@
-const sql = require('better-sqlite3');
-const db = sql('blog.db');
+const sql = require('better-sqlite3')
+const db = sql('blog.db')
 
 const dummyMeals = [
 	{
-		title: 'Nasza szkoła rozwija pasje uczniów',
+		title: 'Rozwijamy pasje uczniów',
 		slug: 'pasje-uczniow',
 		image: '/dummyimage.jpeg',
+		summary: 'Wierzymy w was!',
 		description:
 			'Odkrywamy talenty naszych uczniów! Nasza szkoła nie tylko naucza, lecz również inspiruje do rozwijania pasji. Przykładem jest ta strona internetowa, stworzona przez jednego z uczniów, na której obecnie się znajdujecie.',
 		creator: 'SilentStudent',
 	},
 	{
-		title: 'Tytuł Klubu Szachowego',
-		slug: 'slug-klubu-szachowego',
+		title: 'Nasz klub szachowego',
+		slug: 'klub-szachowy',
 		image: '/dummychess.jpg',
+		summary: 'Posiadamy wlasny klub szachowy!',
 		description:
-			'Opis klubu szachowego. Zapraszamy do uczestnictwa w naszym klubie, gdzie rozwijamy umiejętności szachowe i budujemy społeczność pasjonatów tej fascynującej gry.',
+			'Zapraszamy do uczestnictwa w naszym klubie, gdzie rozwijamy umiejętności szachowe i budujemy społeczność pasjonatów tej fascynującej gry.',
 		creator: 'TwórcaKlubuSzachowego',
 	},
-];
+]
 
 db.prepare(
 	`
@@ -27,11 +29,12 @@ db.prepare(
        slug TEXT NOT NULL UNIQUE,
        title TEXT NOT NULL,
        image TEXT NOT NULL,
+	   summary TEXT NOT NULL,
        description TEXT NOT NULL,
        creator TEXT NOT NULL
     )
 `
-).run();
+).run()
 
 async function initData() {
 	const stmt = db.prepare(`
@@ -40,14 +43,15 @@ async function initData() {
          @slug,
          @title,
          @image,
+		 @summary,
          @description,
          @creator
       )
-   `);
+   `)
 
 	for (const meal of dummyMeals) {
-		stmt.run(meal);
+		stmt.run(meal)
 	}
 }
 
-initData();
+initData()

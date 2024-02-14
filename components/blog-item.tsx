@@ -1,36 +1,53 @@
-import Link from 'next/link';
-import Image from 'next/image';
+'use client'
+import { Card, CardHeader, CardBody, Image } from '@nextui-org/react'
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from '@nextui-org/react'
 
 interface BlogItemProps {
-	title: string;
-	slug: string;
-	image: string;
-	description: string;
-	creator: string;
+	title: string
+	slug: string
+	image: string
+	description: string
+	summary: string
+	creator: string
 }
 
-const BlogItem: React.FC<BlogItemProps> = ({ title, slug, image, description, creator }) => {
+const BlogItem: React.FC<BlogItemProps> = ({ title, image, summary, description, creator }) => {
+	const { isOpen, onOpen, onOpenChange } = useDisclosure()
 	return (
-		<article className=' w-96 rounded-lg border border-gray-600 overflow-hidden shadow-md m-4 p-6'>
-			<header className='mb-4'>
-				<div className='mb-4'>
-					<Image src={image} alt={title} width={300} height={200} objectFit='cover' className='rounded-md' />
+		<Card className='flex flex-col w-60 p-5'>
+			<CardBody className='overflow-visible py-2 flex-grow'>
+				<Image alt='Card background' className='object-cover rounded-xl flex-grow' src={image} width={270} />
+			</CardBody>
+			<CardHeader className='pb-0 pt-2 px-4 flex flex-col justify-center items-center'>
+				<p className='font-bold pb-3 text-large'>{title}</p>
+				<p className='text-tiny uppercase font-bold'>{summary}</p>
+				<small className='text-default-500 mb-3'>{creator}</small>
+				<div className='flex flex-col items-start flex-grow'>
+					<Button onPress={onOpen}>Zobacz szczegóły</Button>
+					<Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+						<ModalContent>
+							{onClose => (
+								<>
+									<ModalHeader className='flex justify-center items-center flex-col gap-1'>
+										{title}
+										<Image alt='Card background' className='object-cover rounded-xl' src={image} width={270} />
+									</ModalHeader>
+									<ModalBody>
+										<p>{description}</p>
+									</ModalBody>
+									<ModalFooter>
+										<Button color='danger' variant='light' onPress={onClose}>
+											Zamknij
+										</Button>
+									</ModalFooter>
+								</>
+							)}
+						</ModalContent>
+					</Modal>
 				</div>
-				<div>
-					<h2 className=' text-2xl font-bold'>{title}</h2>
-					<p className=''>by {creator}</p>
-				</div>
-			</header>
-			<div>
-				<p className=''>{description}</p>
-				<div className='mt-4'>
-					<Link className=' font-semibold' href={`/post/${slug}`}>
-						Read More
-					</Link>
-				</div>
-			</div>
-		</article>
-	);
-};
+			</CardHeader>
+		</Card>
+	)
+}
 
-export default BlogItem;
+export default BlogItem

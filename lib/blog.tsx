@@ -1,7 +1,11 @@
-import sql from 'better-sqlite3';
+import sql from 'better-sqlite3'
 
-const db = sql('blog.db');
+const db = sql('blog.db')
 
-export function getPost() {
-	return db.prepare('SELECT * FROM blog').all();
+export function getPosts() {
+	return db.prepare('SELECT * FROM blog').all()
+}
+
+export function getPost(slug: string) {
+	return db.prepare('SELECT * FROM blog WHERE slug = ?').get(slug)
 }
