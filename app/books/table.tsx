@@ -1,4 +1,6 @@
-import React from 'react';
+'use client'
+
+import React from 'react'
 import {
 	Table,
 	TableHeader,
@@ -8,20 +10,20 @@ import {
 	TableCell,
 	Pagination,
 	getKeyValue,
-} from '@nextui-org/react';
+} from '@nextui-org/react'
 
 export default function BookTable({ users }) {
-	const [page, setPage] = React.useState(1);
-	const rowsPerPage = 4;
+	const [page, setPage] = React.useState(1)
+	const rowsPerPage = 4
 
-	const pages = Math.ceil(users.length / rowsPerPage);
+	const pages = Math.ceil(users.length / rowsPerPage)
 
 	const items = React.useMemo(() => {
-		const start = (page - 1) * rowsPerPage;
-		const end = start + rowsPerPage;
+		const start = (page - 1) * rowsPerPage
+		const end = start + rowsPerPage
 
-		return users.slice(start, end);
-	}, [page, users]);
+		return users.slice(start, end)
+	}, [page, users])
 
 	return (
 		<Table
@@ -54,5 +56,5 @@ export default function BookTable({ users }) {
 				)}
 			</TableBody>
 		</Table>
-	);
+	)
 }

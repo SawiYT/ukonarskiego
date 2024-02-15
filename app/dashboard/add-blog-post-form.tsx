@@ -1,11 +1,11 @@
-import { Input } from '@nextui-org/react';
-import ImagePicker from './image-picker';
-import { AddBlogPost } from '@/lib/post-action';
-import { Button } from '@nextui-org/react';
-import { title } from '@/components/primitives';
+import { Input } from '@nextui-org/react'
+import ImagePicker from './image-picker'
+import { AddBlogPost } from '@/lib/post-action'
+import { Button } from '@nextui-org/react'
+import { title } from '@/components/primitives'
 
 export default function AddBlogPostForm() {
-	const variant = 'bordered';
+	const variant = 'bordered'
 
 	return (
 		<form action={AddBlogPost}>
@@ -28,5 +28,5 @@ export default function AddBlogPostForm() {
 				</Button>
 			</div>
 		</form>
-	);
+	)
 }

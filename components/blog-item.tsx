@@ -1,18 +1,18 @@
-'use client';
-import { Card, CardHeader, CardBody, Image } from '@nextui-org/react';
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from '@nextui-org/react';
+'use client'
+import { Card, CardHeader, CardBody, Image } from '@nextui-org/react'
+import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from '@nextui-org/react'
 
 interface BlogItemProps {
-	title: string;
-	slug: string;
-	image: string;
-	description: string;
-	summary: string;
-	creator: string;
+	title: string
+	slug: string
+	image: string
+	description: string
+	summary: string
+	creator: string
 }
 
 const BlogItem: React.FC<BlogItemProps> = ({ title, image, summary, description, creator }) => {
-	const { isOpen, onOpen, onOpenChange } = useDisclosure();
+	const { isOpen, onOpen, onOpenChange } = useDisclosure()
 	return (
 		<Card className='flex flex-col w-60 p-5'>
 			<CardBody className='overflow-visible py-2 flex-grow'>
@@ -47,7 +47,7 @@ const BlogItem: React.FC<BlogItemProps> = ({ title, image, summary, description,
 				</div>
 			</CardHeader>
 		</Card>
-	);
-};
+	)
+}
 
-export default BlogItem;
+export default BlogItem
