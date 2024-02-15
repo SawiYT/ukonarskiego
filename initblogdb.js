@@ -1,7 +1,7 @@
 const sql = require('better-sqlite3');
 const db = sql('blog.db');
 
-const dummyMeals = [
+const dummyPosts = [
 	{
 		title: 'Rozwijamy pasje uczniów',
 		image: '/dummyimage.jpeg',
@@ -19,6 +19,7 @@ const dummyMeals = [
 		creator: 'TwórcaKlubuSzachowego',
 	},
 ];
+
 
 db.prepare(
 	`
@@ -45,8 +46,8 @@ async function initData() {
       )
    `);
 
-	for (const meal of dummyMeals) {
-		stmt.run(meal);
+	for (const post of dummyPosts) {
+		stmt.run(post);
 	}
 }
 

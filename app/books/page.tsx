@@ -1,9 +1,9 @@
-import { title } from '@/components/primitives';
+import { getBooks } from '@/lib/books';
+import BookTable from './table';
 
-export default function PricingPage() {
-	return (
-		<div>
-			<h2 className={title()}>Podreczniki</h2>
-		</div>
-	);
+export default async function PricingPage() {
+	<h1>e</h1>;
+	const users = await getBooks();
+
+	<BookTable users={users} />;
 }

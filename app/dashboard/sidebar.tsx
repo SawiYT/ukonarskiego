@@ -14,7 +14,7 @@ const Sidebar: FC<SidebarProps> = ({ onSelectOption }) => {
 	}
 
 	return (
-		<div className={'bg-gray-800 absolute z-50 pt-20 top-0 left-0 h-screen text-white p-4'}>
+		<div className={'bg-gray-800 absolute z-40 pt-20 top-0 left-0 h-screen text-white p-4'}>
 			<div className={isOpen ? 'block' : 'hidden'}>
 				<div className='mb-4'>
 					<h2 className='text-2xl font-semibold'>Dashboard</h2>

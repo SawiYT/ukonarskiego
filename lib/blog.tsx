@@ -26,7 +26,8 @@ export async function savePost(post: any) {
 
 	post.image = `/images/${fileName}`;
 
-	db.prepare(`
+	db.prepare(
+		`
 	INSERT INTO blog (title, summary, description, creator, image) VALUES (
 		@title,
 			@summary,
@@ -34,5 +35,6 @@ export async function savePost(post: any) {
 			@creator,
 			@image	
 	)
-	`).run(post);
+	`
+	).run(post);
 }
