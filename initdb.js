@@ -1,6 +1,7 @@
-const sql = require('better-sqlite3')
-const booksDB = sql('books.db')
-const blogDB = sql('blog.db')
+const sql = require('better-sqlite3');
+const booksDB = sql('books.db');
+const blogDB = sql('blog.db');
+const photosDB = sql('photos.db');
 
 const dummyPosts = [
 	{
@@ -19,7 +20,16 @@ const dummyPosts = [
 			'Zapraszamy do uczestnictwa w naszym klubie, gdzie rozwijamy umiejętności szachowe i budujemy społeczność pasjonatów tej fascynującej gry.',
 		creator: 'TwórcaKlubuSzachowego',
 	},
-]
+];
+
+const dummyPhotos = [
+	{
+		image: '/school-photos/stawar.jpg',
+	},
+	{
+		image: '/school-photos/burnat.jpg',
+	},
+];
 
 const dummyBooks = [
 	{
@@ -27,14 +37,16 @@ const dummyBooks = [
 		creator: `M. Chmiel, A. Cisowska, J. Kościerzyńska, H. Kusy, A. Wróblewska`,
 		title: 'Active',
 		publisher: 'Nowa Era',
+		class: '1',
 	},
 	{
 		subject: 'J. ANGIELSKI',
 		creator: `M. Chmiel, A. Cisowska, J. Kościerzyńska, H. Kusy, A. Wróblewska`,
 		title: 'Active',
 		publisher: 'Nowa Era',
+		class: '1',
 	},
-]
+];
 
 booksDB
 	.prepare(
@@ -44,11 +56,23 @@ booksDB
        subject TEXT,
        creator TEXT,
        title TEXT,
-       publisher TEXT
+       publisher TEXT,
+	   class TEXT NOT NULL
    )
    `
 	)
-	.run()
+	.run();
+
+photosDB
+	.prepare(
+		`
+	CREATE TABLE IF NOT EXISTS photos (
+		id INTEGER PRIMARY KEY AUTOINCREMENT,
+		image TEXT NOT NULL
+	)
+`
+	)
+	.run();
 
 blogDB
 	.prepare(
@@ -63,7 +87,7 @@ blogDB
     )
 `
 	)
-	.run()
+	.run();
 
 async function initBlogData() {
 	const stmt = blogDB.prepare(`
@@ -75,14 +99,31 @@ async function initBlogData() {
          @description,
          @creator
       )
-   `)
+   `);
 
 	const insert = blogDB.transaction(post => {
-		stmt.run(post)
-	})
+		stmt.run(post);
+	});
 
 	for (const post of dummyPosts) {
-		insert(post)
+		insert(post);
+	}
+}
+
+async function initPhotosData() {
+	const stmt = photosDB.prepare(`
+      INSERT INTO photos VALUES (
+         null,
+         @image
+      )
+   `);
+
+	const insert = photosDB.transaction(photo => {
+		stmt.run(photo);
+	});
+
+	for (const photo of dummyPhotos) {
+		insert(photo);
 	}
 }
 
@@ -93,18 +134,20 @@ async function initBooksData() {
          @subject,
          @creator,
 		 @title,
-         @publisher
+         @publisher,
+		 @class
       )
-      `)
+      `);
 
 	const insert = booksDB.transaction(book => {
-		stmt.run(book)
-	})
+		stmt.run(book);
+	});
 
 	for (const book of dummyBooks) {
-		insert(book)
+		insert(book);
 	}
 }
 
-initBlogData()
-initBooksData()
+initBlogData();
+initPhotosData();
+initBooksData();

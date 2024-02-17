@@ -15,7 +15,7 @@ export async function savePost(post: any) {
 	const extension = post.image.name.split('.').pop();
 	const fileName = `${post.title}.${extension}`;
 
-	const stream = fs.createWriteStream(`public/images/${fileName}`);
+	const stream = fs.createWriteStream(`public/images-from-blog/${fileName}`);
 	const bufferedImage = await post.image.arrayBuffer();
 
 	stream.write(Buffer.from(bufferedImage), error => {
@@ -24,7 +24,7 @@ export async function savePost(post: any) {
 		}
 	});
 
-	post.image = `/images/${fileName}`;
+	post.image = `/images-from-blog/${fileName}`;
 
 	db.prepare(
 		`

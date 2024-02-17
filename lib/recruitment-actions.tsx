@@ -1,5 +1,8 @@
 'use server';
 
+import { revalidatePath } from 'next/cache';
+import { redirect } from 'next/navigation';
+
 export async function shareApplication(formData: FormData): Promise<void> {
 	const user = {
 		name: formData.get('name'),
@@ -19,4 +22,5 @@ export async function shareApplication(formData: FormData): Promise<void> {
 	};
 
 	console.log(user);
+	redirect('/');
 }

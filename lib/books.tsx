@@ -9,11 +9,12 @@ export function getBooks() {
 export async function saveBook(book: any) {
 	db.prepare(
 		`
-        INSERT INTO books (subject, creator, title, publisher) VALUES (
+        INSERT INTO books (subject, creator, title, publisher, class) VALUES (
             @subject,
             @creator,
             @title,
-            @publisher
+            @publisher,
+            @class
         )
         `
 	).run(book);
