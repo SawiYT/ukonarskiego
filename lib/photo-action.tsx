@@ -6,7 +6,8 @@ import { revalidatePath } from 'next/cache';
 
 export async function AddPhoto(formData: FormData): Promise<void> {
 	const photo = {
-		image: formData.get('photo'),
+		title: formData.get('title'),
+		image: formData.get('image')
 	};
 
 	await savePhoto(photo);

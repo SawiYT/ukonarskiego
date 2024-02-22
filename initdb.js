@@ -2,11 +2,12 @@ const sql = require('better-sqlite3');
 const booksDB = sql('books.db');
 const blogDB = sql('blog.db');
 const photosDB = sql('photos.db');
+const accountsDB = sql('accounts.db');
 
 const dummyPosts = [
 	{
 		title: 'Rozwijamy pasje uczniów',
-		image: '/dummyimage.jpeg',
+		image: 'dummyimage.jpeg',
 		summary: 'Wierzymy w was!',
 		description:
 			'Odkrywamy talenty naszych uczniów! Nasza szkoła nie tylko naucza, lecz również inspiruje do rozwijania pasji. Przykładem jest ta strona internetowa, stworzona przez jednego z uczniów, na której obecnie się znajdujecie.',
@@ -14,7 +15,7 @@ const dummyPosts = [
 	},
 	{
 		title: 'Nasz klub szachowy',
-		image: '/dummychess.jpg',
+		image: 'dummychess.jpg',
 		summary: 'Posiadamy wlasny klub szachowy!',
 		description:
 			'Zapraszamy do uczestnictwa w naszym klubie, gdzie rozwijamy umiejętności szachowe i budujemy społeczność pasjonatów tej fascynującej gry.',
@@ -24,10 +25,12 @@ const dummyPosts = [
 
 const dummyPhotos = [
 	{
-		image: '/school-photos/stawar.jpg',
+		title: 'stawar',
+		image: 'stawar.jpg',
 	},
 	{
-		image: '/school-photos/burnat.jpg',
+		title: 'burnat',
+		image: 'burnat.jpg',
 	},
 ];
 
@@ -68,6 +71,7 @@ photosDB
 		`
 	CREATE TABLE IF NOT EXISTS photos (
 		id INTEGER PRIMARY KEY AUTOINCREMENT,
+		title TEXT NOT NULL,
 		image TEXT NOT NULL
 	)
 `
@@ -84,6 +88,18 @@ blogDB
 	   summary TEXT NOT NULL,
        description TEXT NOT NULL,
        creator TEXT NOT NULL
+    )
+`
+	)
+	.run();
+
+accountsDB
+	.prepare(
+		`
+   CREATE TABLE IF NOT EXISTS accounts (
+       id INTEGER PRIMARY KEY AUTOINCREMENT,
+       login TEXT NOT NULL,
+       password TEXT NOT NULL
     )
 `
 	)
@@ -114,6 +130,7 @@ async function initPhotosData() {
 	const stmt = photosDB.prepare(`
       INSERT INTO photos VALUES (
          null,
+		 @title,
          @image
       )
    `);

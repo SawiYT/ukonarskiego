@@ -19,7 +19,7 @@ const BlogItem: React.FC<BlogItemProps> = ({ title, image, summary, description,
 				<Image
 					alt='Card background'
 					className='object-cover rounded-xl flex-grow h-32'
-					src={image}
+					src={`https://ukonarskiego.s3.eu-central-1.amazonaws.com/${image}`}
 					width={270}
 					height={270}
 				/>
@@ -39,7 +39,7 @@ const BlogItem: React.FC<BlogItemProps> = ({ title, image, summary, description,
 										<Image
 											alt='Card background'
 											className='object-cover rounded-xl'
-											src={image}
+											src={`https://ukonarskiego.s3.eu-central-1.amazonaws.com/${image}`}
 											width={270}
 											height={270}
 										/>

@@ -9,7 +9,7 @@ export default function App() {
 			<Avatar isBordered color='default' src={siteConfig.profilePicture.KrzysztofBurnat} />
 			<Avatar isBordered color='primary' src={siteConfig.profilePicture.TomaszStawarski} />
 			<Avatar isBordered color='secondary' src={siteConfig.profilePicture.AnnaSzuba} />
-			<Avatar isBordered color='success' src={siteConfig.profilePicture.BarbaraBatkoSzepielak} />
+			<Avatar isBordered color='success' src={siteConfig.profilePicture.MonikaPut} />
 			<Avatar isBordered color='warning' src={siteConfig.profilePicture.AnetaKościk} />
 			<Avatar isBordered color='danger' src={siteConfig.profilePicture.KatarzynaKornaus} />
 		</div>

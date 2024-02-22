@@ -46,6 +46,19 @@ const Sidebar: FC<SidebarProps> = ({ onSelectOption }) => {
 							Dodaj wpis do bloga
 						</button>
 					</li>
+					<li className='mb-2'>
+						<button onClick={() => onSelectOption('konto')} className='flex items-center text-white'>
+							<svg
+								xmlns='http://www.w3.org/2000/svg'
+								fill='none'
+								viewBox='0 0 24 24'
+								stroke='currentColor'
+								className='h-5 w-5 mr-2'>
+								<path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M12 6v6m0 0v6m0-6h6m-6 0H6' />
+							</svg>
+							Dodaj konto nauczycielskie
+						</button>
+					</li>
 					<li>
 						<button onClick={() => onSelectOption('zdjecie')} className='flex items-center text-white'>
 							<svg

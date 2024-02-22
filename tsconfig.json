@@ -23,6 +23,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "initblogdb.js", "app/blog/page.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "initblogdb.js", "app/blog/page.tsx", "auth/authSlice.js"],
   "exclude": ["node_modules"]
 }

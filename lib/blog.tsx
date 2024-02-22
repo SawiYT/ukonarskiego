@@ -1,7 +1,11 @@
 import sql from 'better-sqlite3';
 import fs from 'node:fs';
+import { S3 } from '@aws-sdk/client-s3';
 
 const db = sql('blog.db');
+const s3 = new S3({
+	region: 'eu-central-1',
+});
 
 export function getPosts() {
 	return db.prepare('SELECT * FROM blog').all();
@@ -15,16 +19,16 @@ export async function savePost(post: any) {
 	const extension = post.image.name.split('.').pop();
 	const fileName = `${post.title}.${extension}`;
 
-	const stream = fs.createWriteStream(`public/images-from-blog/${fileName}`);
 	const bufferedImage = await post.image.arrayBuffer();
 
-	stream.write(Buffer.from(bufferedImage), error => {
-		if (error) {
-			throw new Error('Saving image failded!');
-		}
+	s3.putObject({
+		Bucket: 'ukonarskiego',
+		Key: fileName,
+		Body: Buffer.from(bufferedImage),
+		ContentType: post.image.type,
 	});
 
-	post.image = `/images-from-blog/${fileName}`;
+	post.image = fileName;
 
 	db.prepare(
 		`
