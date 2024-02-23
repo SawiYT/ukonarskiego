@@ -1,9 +1,9 @@
-import { Link } from '@nextui-org/link';
-import { button as buttonStyles } from '@nextui-org/theme';
-import { siteConfig } from '@/config/site';
-import { title, subtitle } from '@/components/primitives';
-import { FacebookIcon } from '@/components/icons';
-import Avatars from '@/components/avatars';
+import { Link } from '@nextui-org/link'
+import { button as buttonStyles } from '@nextui-org/theme'
+import { siteConfig } from '@/config/site'
+import { title, subtitle } from '@/components/primitives'
+import { FacebookIcon } from '@/components/icons'
+import Avatars from '@/components/avatars'
 
 export default function Home() {
 	return (
@@ -13,8 +13,10 @@ export default function Home() {
 				<br />
 				<h1 className={title({ color: 'violet' })}>„U Konarskiego”&nbsp;</h1>
 				<br />
-				<h2 className={subtitle({ class: 'mt-4' })}>
-					Zapraszamy do naszej szkoły przy ulicy Szewskiej 7 - miejsca pełnego wiedzy i odkryć!
+				<br />
+				<h2 className={' text-lg'}>
+					Zapraszamy do naszej szkoły - miejsca pełnego wiedzy i odkryć! <br />
+					<span className=' font-medium'>ul. Szewska 7 33-100 Tarnow tel. 798-001-620 info@ukonarskiego.wiara.pl</span>
 				</h2>
 			</div>
 			<div className='flex gap-3'>
@@ -35,5 +37,5 @@ export default function Home() {
 				<Avatars />
 			</div>
 		</section>
-	);
+	)
 }

@@ -1,4 +1,4 @@
-export type SiteConfig = typeof siteConfig;
+export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
 	name: 'U Konarskiego',
@@ -18,6 +18,14 @@ export const siteConfig = {
 		},
 		{
 			label: 'Galeria',
+			href: '/photos',
+		},
+		{
+			label: 'Statut',
+			href: '/photos',
+		},
+		{
+			label: 'Rodo 	',
 			href: '/photos',
 		},
 		{
@@ -66,4 +74,4 @@ export const siteConfig = {
 		KatarzynaKornaus:
 			'https://scontent-waw1-1.xx.fbcdn.net/v/t1.18169-9/1656062_788472237834071_1490287122_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=be3454&_nc_ohc=8xQZtHDdqjAAX_lsraN&_nc_ht=scontent-waw1-1.xx&oh=00_AfB0OgkRomsbWVnquDGVwXGJ9JfxxZlFjoc5JsI-tP0enQ&oe=65F0A9B3',
 	},
-};
+}
