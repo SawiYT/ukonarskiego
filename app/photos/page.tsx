@@ -3,7 +3,7 @@ import { title } from '@/components/primitives';
 import { getPhotos } from '@/lib/photos';
 
 interface Photo {
-	id: number;
+	id: string;
 	image: string;
 }
 

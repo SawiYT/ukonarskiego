@@ -36,37 +36,37 @@ const BookTable: React.FC<BookTableProps> = ({ users }) => {
 	}, [page, users]);
 
 	return (
-		<Table
-			aria-label='Example table with client side pagination'
-			bottomContent={
-				<div className='flex justify-center'>
-					<Pagination
-						isCompact
-						showControls
-						showShadow
-						color='secondary'
-						page={page}
-						total={pages}
-						onChange={page => setPage(page)}
-					/>
-				</div>
-			}
-			classNames={{
-				wrapper: 'min-h-[222px]',
-			}}>
-			<TableHeader>
-				<TableColumn key='subject'>PRZEDMIOT</TableColumn>
-				<TableColumn key='creator'>AUTOR/AUTORZY</TableColumn>
-				<TableColumn key='title'>TYTUŁ</TableColumn>
-				<TableColumn key='publisher'>WYDAWNICTWO</TableColumn>
-				<TableColumn key='class'>KLASA</TableColumn>
-			</TableHeader>
-			<TableBody items={items}>
-				{item => (
-					<TableRow key={item.title}>{columnKey => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}</TableRow>
-				)}
-			</TableBody>
-		</Table>
+		<div>
+			<Table
+				aria-label='Example table with client side pagination'
+				bottomContent={
+					<div className='flex justify-center'>
+						<Pagination
+							isCompact
+							showControls
+							showShadow
+							color='secondary'
+							page={page}
+							total={pages}
+							onChange={page => setPage(page)}
+						/>
+					</div>
+				}>
+				<TableHeader>
+					<TableColumn key='key'>ID</TableColumn>
+					<TableColumn key='subject'>PRZEDMIOT</TableColumn>
+					<TableColumn key='creator'>AUTOR/AUTORZY</TableColumn>
+					<TableColumn key='title'>TYTUŁ</TableColumn>
+					<TableColumn key='publisher'>WYDAWNICTWO</TableColumn>
+					<TableColumn key='class'>KLASA</TableColumn>
+				</TableHeader>
+				<TableBody items={items}>
+					{item => (
+						<TableRow key={item.title}>{columnKey => <TableCell>{getKeyValue(item, columnKey)}</TableCell>}</TableRow>
+					)}
+				</TableBody>
+			</Table>
+		</div>
 	);
 };
 

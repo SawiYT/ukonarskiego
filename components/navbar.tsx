@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import {
 	Navbar as NextUINavbar,
 	NavbarContent,
@@ -9,21 +12,20 @@ import {
 } from '@nextui-org/navbar';
 import { Button } from '@nextui-org/button';
 import { Link } from '@nextui-org/link';
-
 import { link as linkStyles } from '@nextui-org/theme';
-
 import { siteConfig } from '@/config/site';
 import NextLink from 'next/link';
 import clsx from 'clsx';
-
 import { ThemeSwitch } from '@/components/theme-switch';
 import { HeartFilledIcon, FacebookIcon } from '@/components/icons';
-
 import { Logo } from '@/components/icons';
+import { OuiArrowDown } from '@/components/icons';
 
 export const Navbar = () => {
+	const [isDokumentyVisible, setIsDokumentyVisible] = useState(false);
+
 	return (
-		<NextUINavbar maxWidth='xl' position='sticky' className=' z-50'>
+		<NextUINavbar maxWidth='xl' position='sticky' className='z-50'>
 			<NavbarContent className='basis-1/5 sm:basis-full' justify='start'>
 				<NavbarBrand as='li' className='gap-3 max-w-fit'>
 					<NextLink className='flex justify-start items-center gap-1' href='/'>
@@ -33,7 +35,14 @@ export const Navbar = () => {
 				</NavbarBrand>
 				<ul className='hidden lg:flex gap-4 justify-start ml-2'>
 					{siteConfig.navItems.map(item => (
-						<NavbarItem key={item.href}>
+						<NavbarItem
+							key={item.href}
+							{...(item.label === 'Dokumenty'
+								? {
+										onMouseEnter: () => setIsDokumentyVisible(true),
+										onMouseLeave: () => setIsDokumentyVisible(false),
+								  }
+								: {})}>
 							<NextLink
 								className={clsx(
 									linkStyles({ color: 'foreground' }),
@@ -41,8 +50,28 @@ export const Navbar = () => {
 								)}
 								color='foreground'
 								href={item.href}>
-								{item.label}
+								<div className={`flex justify-center items-end ${item.label === 'Dokumenty' ? ' gap-[5px]' : ''}`}>
+									{item.label}
+									{item.label === 'Dokumenty' ? <OuiArrowDown /> : null}
+								</div>
 							</NextLink>
+
+							{item.label === 'Dokumenty' && isDokumentyVisible && (
+								<div className='flex flex-col absolute p-1'>
+									<a
+										href='http://www.ukonarskiego.wiara.pl/download/Informacja.pdf'
+										target='_blank'
+										rel='noopener noreferrer'>
+										RODO
+									</a>
+									<a
+										href='http://www.ukonarskiego.wiara.pl/download/Statut_szkoly.pdf'
+										target='_blank'
+										rel='noopener noreferrer'>
+										STATUT
+									</a>
+								</div>
+							)}
 						</NavbarItem>
 					))}
 				</ul>

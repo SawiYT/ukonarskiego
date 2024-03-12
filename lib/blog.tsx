@@ -1,5 +1,4 @@
 import sql from 'better-sqlite3';
-import fs from 'node:fs';
 import { S3 } from '@aws-sdk/client-s3';
 
 const db = sql('blog.db');
@@ -11,13 +10,24 @@ export function getPosts() {
 	return db.prepare('SELECT * FROM blog').all();
 }
 
-export function getPost(slug: string) {
-	return db.prepare('SELECT * FROM blog WHERE slug = ?').get(slug);
+export function removePostById(id: number) {
+	const post = db.prepare('SELECT * FROM blog WHERE id = ?').get(id) as { id: number; title: string };
+
+	if (!post) {
+		console.error(`Post with id ${id} not found.`);
+		return;
+	}
+
+	db.prepare('DELETE FROM blog WHERE id = ?').run(id);
+
+	s3.deleteObject({
+		Bucket: 'ukonarskiego',
+		Key: post?.title, 
+	});
 }
 
 export async function savePost(post: any) {
-	const extension = post.image.name.split('.').pop();
-	const fileName = `${post.title}.${extension}`;
+	const fileName = `${post.title}`;
 
 	const bufferedImage = await post.image.arrayBuffer();
 

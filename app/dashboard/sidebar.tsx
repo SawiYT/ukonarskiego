@@ -1,5 +1,3 @@
-'use client';
-
 import React, { FC, useState } from 'react';
 
 interface SidebarProps {
@@ -14,7 +12,7 @@ const Sidebar: FC<SidebarProps> = ({ onSelectOption }) => {
 	}
 
 	return (
-		<div className={'bg-gray-800 absolute z-40 pt-20 top-0 left-0 h-screen text-white p-4'}>
+		<div className={`absolute z-30 pt-20 top-0 left-0 h-screen text-white p-4 ${isOpen ? 'bg-gray-800' : ''}`}>
 			<div className={isOpen ? 'block' : 'hidden'}>
 				<div className='mb-4'>
 					<h2 className='text-2xl font-semibold'>Dashboard</h2>
@@ -77,7 +75,7 @@ const Sidebar: FC<SidebarProps> = ({ onSelectOption }) => {
 			<button onClick={handleSwitch} className='absolute sm:block md:hidden top-1/2 right-0'>
 				{isOpen ? (
 					<svg width='32' height='32' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
-						<g fill='none' stroke='currentColor' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2'>
+						<g fill='none' stroke='violet' strokeLinecap='round' strokeLinejoin='round' strokeWidth='2'>
 							<path d='M21 12H9m4 4l-4-4l4-4' />
 							<path d='M12 3a9 9 0 1 0 0 18' />
 						</g>
@@ -86,7 +84,7 @@ const Sidebar: FC<SidebarProps> = ({ onSelectOption }) => {
 					<svg width='32' height='32' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
 						<path
 							fill='none'
-							stroke='currentColor'
+							stroke='violet'
 							strokeLinecap='round'
 							strokeLinejoin='round'
 							strokeWidth='2'

@@ -3,7 +3,7 @@ import { getPosts } from '@/lib/blog';
 import BlogGrid from '@/components/blog-grid';
 
 interface BlogPost {
-	id: number;
+	id: string;
 	title: string;
 	slug: string;
 	image: string;

@@ -11,13 +11,15 @@ interface Book {
 }
 
 export default async function PricingPage() {
-	const users = (await getBooks()) as Book[];
+	const originalUsers = (await getBooks()) as Book[];
+
+	const sortedUsers = [...originalUsers].sort((a, b) => a.class.localeCompare(b.class));
 
 	return (
 		<>
 			<h2 className={title()}>Podreczniki</h2>
 			<div className='m-20 md:m-0 md:pt-10'>
-				<BookTable users={users} />
+				<BookTable users={sortedUsers} />
 			</div>
 		</>
 	);

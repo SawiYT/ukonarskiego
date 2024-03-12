@@ -11,6 +11,22 @@ export function getPhotos() {
 	return db.prepare('SELECT * FROM photos').all();
 }
 
+export function removePhotoById(id: number) {
+	const photo = db.prepare('SELECT * FROM photos WHERE id = ?').get(id) as { id: number; title: string };
+
+	if (!photo) {
+		console.error(`Photo with id ${id} not found.`);
+		return;
+	}
+
+	db.prepare('DELETE FROM photos WHERE id = ?').run(id);
+
+	s3.deleteObject({
+		Bucket: 'ukonarskiego',
+		Key: photo?.title,
+	});
+}
+
 export async function savePhoto(photo: any) {
 	const extension = photo.image.name.split('.').pop();
 	const fileName = `${photo.title}.${extension}`;

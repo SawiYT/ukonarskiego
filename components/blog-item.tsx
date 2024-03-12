@@ -3,6 +3,7 @@ import { Card, CardHeader, CardBody, Image } from '@nextui-org/react';
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from '@nextui-org/react';
 
 interface BlogItemProps {
+	id: string;
 	title: string;
 	slug: string;
 	image: string;
@@ -11,7 +12,7 @@ interface BlogItemProps {
 	creator: string;
 }
 
-const BlogItem: React.FC<BlogItemProps> = ({ title, image, summary, description, creator }) => {
+const BlogItem: React.FC<BlogItemProps> = ({ id, title, image, summary, description, creator }) => {
 	const { isOpen, onOpen, onOpenChange } = useDisclosure();
 	return (
 		<Card className='flex flex-col w-60 h-[22.6rem] p-5'>
@@ -46,6 +47,7 @@ const BlogItem: React.FC<BlogItemProps> = ({ title, image, summary, description,
 									</ModalHeader>
 									<ModalBody>
 										<p>{description}</p>
+										<p className='font-bold'>id: {id}</p>
 									</ModalBody>
 									<ModalFooter>
 										<Button color='danger' variant='light' onPress={onClose}>

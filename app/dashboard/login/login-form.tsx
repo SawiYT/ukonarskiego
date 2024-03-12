@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import { Button, Input } from '@nextui-org/react';
 import { title } from '@/components/primitives';
-import { handleLogin } from '../../lib/login-util'; // Replace with the actual path
+import { handleLogin } from '../../../lib/login-util'; // Replace with the actual path
 
 interface LoginProps {
 	setLoggedIn: (isLoggedIn: boolean) => void;

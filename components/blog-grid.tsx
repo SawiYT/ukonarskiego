@@ -3,7 +3,7 @@ import BlogItem from './blog-item';
 
 interface BlogGridProps {
 	posts: Array<{
-		id: number;
+		id: string;
 		title: string;
 		slug: string;
 		image: string;

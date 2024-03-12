@@ -1,7 +1,7 @@
 'use server';
 
 import { redirect } from 'next/navigation';
-import { savePost } from './blog';
+import { removePostById, savePost } from './blog';
 import { revalidatePath } from 'next/cache';
 
 export async function AddBlogPost(formData: FormData): Promise<void> {
@@ -14,6 +14,16 @@ export async function AddBlogPost(formData: FormData): Promise<void> {
 	};
 
 	await savePost(post);
+	revalidatePath('/blog');
+	redirect('/blog');
+}
+
+export async function RemoveBlogPost(formData: FormData): Promise<void> {
+	const post = {
+		id: formData.get('id'),
+	};
+	const postId = parseInt(post.id as string, 10);
+	await removePostById(postId);
 	revalidatePath('/blog');
 	redirect('/blog');
 }
