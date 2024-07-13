@@ -2,7 +2,7 @@
 
 **UKonarskiego Tarnów** to nowoczesna strona internetowa dla Szkoły Podstawowej im. UKonarskiego w Tarnowie. Zbudowana z wykorzystaniem React, Tailwind CSS, Next.js, NextUI i TypeScript, strona oferuje szereg funkcji dla uczniów, nauczycieli i rodziców.
 
-<img src="assets/images/ukonarskiego-tarnow.png" style="width: 100%;" alt="Strona UKonarskiego Tarnów">
+<img src="public/konar1.png" style="width: 100%;" alt="Strona UKonarskiego Tarnów">
 
 ## 💜 Funkcje
 
@@ -30,10 +30,10 @@
 ## 📸 Zrzuty Ekranu
 
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-    <img src="assets/images/screenshot1.png" style="width: 45%;" alt="Tabela Książek">
-    <img src="assets/images/screenshot2.png" style="width: 45%;" alt="Blog Szkolny">
-    <img src="assets/images/screenshot3.png" style="width: 45%;" alt="Galeria Zdjęć">
-    <img src="assets/images/screenshot4.png" style="width: 45%;" alt="Panel Administracyjny">
+    <img src="public/konar2.png" style="width: 45%;" alt="Tabela Książek">
+    <img src="public/konar3.png" style="width: 45%;" alt="Blog Szkolny">
+    <img src="public/konar4.png" style="width: 45%;" alt="Galeria Zdjęć">
+    <img src="public/konar5.png" style="width: 45%;" alt="Galeria Zdjęć">
 </div>
 
 ## 🚀 Technologie
