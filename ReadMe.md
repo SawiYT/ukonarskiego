@@ -44,7 +44,7 @@
 - **NextUI** - Komponenty UI do szybkiego tworzenia atrakcyjnych interfejsów.
 - **TypeScript** - Superset JavaScriptu z typowaniem statycznym.
 - **AWS** - Usługi chmurowe do przechowywania danych i zarządzania backendem.
-- **PostgreSQL** - Relacyjna baza danych do przechowywania danych o książkach, wpisach na blogu i innych treściach.
+- **better-sqlite3** - Baza danych do przechowywania danych o książkach, wpisach na blogu i innych treściach.
 
 ## 📖 Dokumentacja
 
