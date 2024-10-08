@@ -54,10 +54,6 @@ Pełna dokumentacja projektu znajduje się w [dokumentacji](docs/README.md). Zna
 
 Jeśli chcesz dołożyć swoją cegiełkę do projektu, zapraszam do składania **issue** lub **pull requestów**. Więcej informacji znajdziesz w [Wytycznych Wkładu](CONTRIBUTING.md).
 
-## 📧 Kontakt
-
-Masz pytania? Skontaktuj się ze mną pod adresem [twoj.email@example.com](mailto:twoj.email@example.com).
-
 ## 📝 Licencja
 
 Projekt jest udostępniony na licencji **MIT**. Szczegóły znajdują się w pliku [LICENSE](LICENSE).
