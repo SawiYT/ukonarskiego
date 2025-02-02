@@ -1,6 +1,6 @@
 # 🏫 UKonarskiego Tarnów
 
-**UKonarskiego Tarnów** to nowoczesna strona internetowa dla Szkoły Podstawowej im. UKonarskiego w Tarnowie. Zbudowana z wykorzystaniem React, Tailwind CSS, Next.js, NextUI i TypeScript, strona oferuje szereg funkcji dla uczniów, nauczycieli i rodziców.
+**UKonarskiego Tarnów** to nowoczesna strona internetowa dla Niepublicznego Liceum u Konarskiego w Tarnowie. Zbudowana z wykorzystaniem React, Tailwind CSS, Next.js, NextUI i TypeScript, strona oferuje szereg funkcji dla uczniów, nauczycieli i rodziców.
 
 <img src="public/konar1.png" style="width: 100%;" alt="Strona UKonarskiego Tarnów">
 
