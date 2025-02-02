@@ -7,7 +7,7 @@
 ## 💜 Funkcje
 
 - **Tabela Książek**  
-  Przeglądaj książki dostępne w szkole z możliwością filtrowania według klasy i kategorii. Można wyszukiwać książki według tytułu, autora, ISBN oraz filtrować je według przedmiotu i klasy.
+  Przeglądaj książki dostępne w szkole z segregacją według klasy i kategorii.
 
 - **Blog Szkolny**  
   Aktualności i ogłoszenia dotyczące różnych wydarzeń szkolnych, takich jak zajęcia koła szachowego i inne ważne informacje dla społeczności szkolnej.
