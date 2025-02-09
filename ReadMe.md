@@ -27,7 +27,7 @@
 - **Integracja z AWS**  
   Używamy chmury AWS do przechowywania danych, zarządzania plikami oraz zapewnienia stabilności i bezpieczeństwa aplikacji.
 
-## 📸 Screenshots
+## 📸 Zrzuty Ekranu
 
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
     <img src="public/konar2.png" style="width: 45%;" alt="Tabela Książek">
