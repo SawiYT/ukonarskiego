@@ -46,10 +46,6 @@
 - **AWS** - Usługi chmurowe do przechowywania danych i zarządzania backendem.
 - **better-sqlite3** - Baza danych do przechowywania danych o książkach, wpisach na blogu i innych treściach.
 
-## 📖 Dokumentacja
-
-Pełna dokumentacja projektu znajduje się w [dokumentacji](docs/README.md). Znajdziesz tam szczegóły dotyczące struktury projektu, instrukcje dotyczące rozwoju i wdrożenia, oraz informacje o dostępnych API.
-
 ## 🤝 Współpraca
 
 Jeśli chcesz dołożyć swoją cegiełkę do projektu, zapraszam do składania **issue** lub **pull requestów**. Więcej informacji znajdziesz w [Wytycznych Wkładu](CONTRIBUTING.md).
